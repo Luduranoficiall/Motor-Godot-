@@ -9,6 +9,7 @@ import { GameOverModal } from './components/GameOverModal';
 import { VictoryModal } from './components/VictoryModal';
 import { ShowcaseModal } from './components/ShowcaseModal';
 import { HowToPlayModal } from './components/HowToPlayModal';
+import { RepoDocsModal } from './components/RepoDocsModal';
 import { soundManager } from './audio/soundManager';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
   const [is3DMode, setIs3DMode] = useState(false);
   const [isShowcaseOpen, setIsShowcaseOpen] = useState(false);
   const [isHowToPlayOpen, setIsHowToPlayOpen] = useState(false);
+  const [isDocsOpen, setIsDocsOpen] = useState(false);
 
   // HUD stats cached in state (throttled by game engine)
   const [hudStats, setHudStats] = useState<PlayerStats>({
@@ -134,6 +136,7 @@ export default function App() {
           onStart={handleStartGame}
           onOpenShowcase={() => setIsShowcaseOpen(true)}
           onOpenHowToPlay={() => setIsHowToPlayOpen(true)}
+          onOpenDocs={() => setIsDocsOpen(true)}
           isMuted={isMuted}
           onToggleMute={handleToggleMute}
           is3DMode={is3DMode}
@@ -166,6 +169,7 @@ export default function App() {
           onReturnTitle={handleReturnToTitle}
           onOpenShowcase={() => setIsShowcaseOpen(true)}
           onOpenHowToPlay={() => setIsHowToPlayOpen(true)}
+          onOpenDocs={() => setIsDocsOpen(true)}
           isMuted={isMuted}
           onToggleMute={handleToggleMute}
           is3DMode={is3DMode}
@@ -189,13 +193,17 @@ export default function App() {
         />
       )}
 
-      {/* Global Modals for Showcase & How To Play */}
+      {/* Global Modals for Showcase, How To Play & Repo Documentation */}
       {isShowcaseOpen && (
         <ShowcaseModal onClose={() => setIsShowcaseOpen(false)} />
       )}
 
       {isHowToPlayOpen && (
         <HowToPlayModal onClose={() => setIsHowToPlayOpen(false)} />
+      )}
+
+      {isDocsOpen && (
+        <RepoDocsModal onClose={() => setIsDocsOpen(false)} />
       )}
     </div>
   );

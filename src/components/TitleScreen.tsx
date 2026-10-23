@@ -1,11 +1,12 @@
 import React from 'react';
-import { Volume2, VolumeX, Sparkles, BookOpen, Layers } from 'lucide-react';
+import { Volume2, VolumeX, Sparkles, BookOpen, Layers, FileText } from 'lucide-react';
 import { soundManager } from '../audio/soundManager';
 
 interface TitleScreenProps {
   onStart: () => void;
   onOpenShowcase: () => void;
   onOpenHowToPlay: () => void;
+  onOpenDocs: () => void;
   isMuted: boolean;
   onToggleMute: () => void;
   is3DMode: boolean;
@@ -16,6 +17,7 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
   onStart,
   onOpenShowcase,
   onOpenHowToPlay,
+  onOpenDocs,
   isMuted,
   onToggleMute,
   is3DMode,
@@ -124,6 +126,14 @@ export const TitleScreen: React.FC<TitleScreenProps> = ({
           >
             <BookOpen className="w-4 h-4 text-slate-400" />
             <span>Como Jogar</span>
+          </button>
+
+          <button
+            onClick={onOpenDocs}
+            className="w-full sm:w-auto px-5 py-3.5 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 border border-emerald-500/50 font-semibold text-sm rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+          >
+            <FileText className="w-4 h-4 text-emerald-400" />
+            <span>Documentação & Repo</span>
           </button>
         </div>
       </div>

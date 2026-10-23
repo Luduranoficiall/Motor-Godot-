@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, RotateCcw, Volume2, VolumeX, Layers, BookOpen, Sparkles, Home } from 'lucide-react';
+import { Play, RotateCcw, Volume2, VolumeX, Layers, BookOpen, Sparkles, Home, FileText } from 'lucide-react';
 
 interface PauseModalProps {
   onResume: () => void;
@@ -7,6 +7,7 @@ interface PauseModalProps {
   onReturnTitle: () => void;
   onOpenShowcase: () => void;
   onOpenHowToPlay: () => void;
+  onOpenDocs: () => void;
   isMuted: boolean;
   onToggleMute: () => void;
   is3DMode: boolean;
@@ -19,6 +20,7 @@ export const PauseModal: React.FC<PauseModalProps> = ({
   onReturnTitle,
   onOpenShowcase,
   onOpenHowToPlay,
+  onOpenDocs,
   isMuted,
   onToggleMute,
   is3DMode,
@@ -88,6 +90,14 @@ export const PauseModal: React.FC<PauseModalProps> = ({
           >
             <BookOpen className="w-3.5 h-3.5 text-slate-400" />
             <span>Guia de Nós & Inimigos</span>
+          </button>
+
+          <button
+            onClick={onOpenDocs}
+            className="w-full py-2.5 bg-emerald-950/40 hover:bg-emerald-900/50 text-emerald-300 font-semibold text-xs rounded-lg flex items-center justify-center gap-2 transition-all cursor-pointer border border-emerald-600/40"
+          >
+            <FileText className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Documentação Técnica do Repositório</span>
           </button>
 
           <button

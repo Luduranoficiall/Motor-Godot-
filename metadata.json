@@ -1,0 +1,6 @@
+{
+  "name": "Godot: O Desafio dos Nós - Engine Survivors",
+  "description": "Um jogo de ação e sobrevivência arcade celebrando o motor Godot, com combate de nós 2D/3D, compilação de poderes GDScript e vitrine de jogos icônicos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
